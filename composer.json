@@ -8,5 +8,13 @@
             "email": "protobile@googlegroups.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-0": {
+            "Protobile\\": ".",
+            "App\\": "."
+        },
+        "files": [ "./Protobile/functions.php" ],
+        "classmap" : [ "Protobile/", "App/" ]
+    }
 }

@@ -18,6 +18,8 @@ Protobile is a PHP framework being designed for massive enterprise use, ease of 
 ### Status of the project
 Protobile is currently being developed as a concept. Do not expect it to be production ready any time soon.
 
+"Barcelona" is code name of the current development version of the Protobile.
+ 
 ### License
 
 Protobile is licensed under the terms of Apache License, version 2.0.
