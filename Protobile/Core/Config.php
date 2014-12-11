@@ -1,7 +1,7 @@
 <?php
 /**
  * This file contains a configuration manager for Protobile
- * 
+ *
  * @package Protobile
  * @since Barcelona
  * @author Matiss Treinis <matiss@marolind.com>
@@ -11,6 +11,8 @@
 
 namespace Protobile\Core;
 
-use \Protobile\Interface\ConfigInterface;
+use Protobile\Interfaces\ConfigInterface;
 
-class Config implements ConfigInterface{}
+class Config implements ConfigInterface
+{
+}

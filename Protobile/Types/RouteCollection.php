@@ -8,11 +8,10 @@
  * @copyright Protobile Developers
  * @license Apache License 2.0
  */
- 
+
 namespace Protobile\Types;
 
-use Protobile\Abstract\Collection;
-use Protobile\Types\Route;
+use Protobile\Abstracted\Collection;
 
 class RouteCollection
 {
