@@ -1,0 +1,6 @@
+suites:
+    protobile:
+        namespace: Protobile
+        src_path: .
+        spec_path:
+        spec_prefix: Spec

@@ -2,7 +2,7 @@
 /**
  * This exception is thrown in case of critical system failure.
  * This exception MUST be handled as state when application is unable to continue.
- * 
+ *
  * @package Protobile
  * @since Barcelona
  * @author Matiss Treinis <matiss@marolind.com>
@@ -12,4 +12,6 @@
 
 namespace Protobile\Exceptions;
 
-abstract class CoreException extends \Protobile\Exceptions\BaseException{}
+class CoreException extends \Protobile\Exceptions\BaseException
+{
+}

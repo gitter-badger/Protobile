@@ -11,6 +11,6 @@
 
 namespace Protobile\Core;
 
-use \Protobile\Interface\ConfigInterface;
+use \Protobile\Interface\RouterInterface;
 
-class Config implements ConfigInterface{}
+class Router implements RouterInterface{}

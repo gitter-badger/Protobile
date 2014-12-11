@@ -1,7 +1,6 @@
 <?php
 /**
- * This exception is a base of all Protobile specific exceptions.
- * All framework exceptions must extend from it.
+ * This exception is thrown in case of there is a problem with request router.
  *
  * @package Protobile
  * @since Barcelona
@@ -12,6 +11,6 @@
 
 namespace Protobile\Exceptions;
 
-abstract class BaseException extends \Exception
+class RouterException extends \Protobile\Exceptions\BaseException
 {
 }
