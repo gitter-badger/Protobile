@@ -12,7 +12,7 @@ namespace Protobile\Abstracted;
 
 abstract class Collection implements \ArrayAccess, \Iterator
 {
-    private $container = array();
+    private $container = [];
     private $index     = 0;
 
     abstract public function validateItem($item, $key);
