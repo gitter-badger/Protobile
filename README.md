@@ -3,7 +3,7 @@
 ![Issues](https://img.shields.io/github/issues/protobile/protobile.svg?style=flat-square)
 ![License](https://img.shields.io/packagist/l/protobile/protobile.svg?style=flat-square)
 ![Releases](https://img.shields.io/github/release/protobile/protobile.svg?style=flat-square)
-
+![Code Climate](https://img.shields.io/codeclimate/github/Protobile/Protobile.svg?style=flat-square)
 
 Protobile
 =========
