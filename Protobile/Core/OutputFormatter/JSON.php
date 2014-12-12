@@ -9,9 +9,9 @@
 
 namespace Protobile\Core\OutputFormatter;
 
-use Protobile\Interfaces\OutputFormatter;
+use Protobile\Interfaces\OutputFormatterInterface;
 
-class JSON implements OutputFormatter
+class JSON implements OutputFormatterInterface
 {
     protected $output;
 

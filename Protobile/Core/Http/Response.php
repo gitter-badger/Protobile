@@ -10,12 +10,12 @@
 namespace Protobile\Core\Http;
 
 use Protobile\Core\OutputFormatter\Html;
-use Protobile\Interfaces\OutputFormatter;
+use Protobile\Interfaces\OutputFormatterInterface;
 
 class Response
 {
     /**
-     * @var OutputFormatter
+     * @var OutputFormatterInterface
      */
     protected $output_formatter;
 
@@ -85,7 +85,7 @@ class Response
     }
 
     /**
-     * @return OutputFormatter
+     * @return OutputFormatterInterface
      */
     public function get_output_formatter()
     {
@@ -93,14 +93,17 @@ class Response
     }
 
     /**
-     * @param OutputFormatter $output_formatter
+     * @param OutputFormatterInterface $output_formatter
      */
-    public function set_output_formatter(OutputFormatter $output_formatter)
+    public function set_output_formatter(OutputFormatterInterface $output_formatter)
     {
         $this->output_formatter = $output_formatter;
     }
 
-    public function __construct(OutputFormatter $output_formatter = null)
+    /**
+     * @param OutputFormatterInterface $output_formatter
+     */
+    public function __construct(OutputFormatterInterface $output_formatter = null)
     {
         if (null === $output_formatter) {
             $this->set_output_formatter(new Html());

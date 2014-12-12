@@ -9,7 +9,7 @@
 
 namespace Protobile\Interfaces;
 
-interface OutputFormatter
+interface OutputFormatterInterface
 {
     public function get_output();
     public function set_output($output);

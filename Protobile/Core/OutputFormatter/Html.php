@@ -9,9 +9,9 @@
 
 namespace Protobile\Core\OutputFormatter;
 
-use Protobile\Interfaces\OutputFormatter;
+use Protobile\Interfaces\OutputFormatterInterface;
 
-class Html implements OutputFormatter
+class Html implements OutputFormatterInterface
 {
     protected $output;
 
