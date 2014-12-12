@@ -46,7 +46,7 @@ class DependencyInjector
         $class       = new ReflectionClass($class);
         $constructor = $class->getConstructor();
         $parameters  = $class->getParameters();
-        
+
         foreach ($params as $param) {
             //TODO: validate array null and params etc, and throw appropriate exceptions
             if ($param->getClass() !== null) {

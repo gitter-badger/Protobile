@@ -1,7 +1,5 @@
 <?php
 /**
- * This file contains interface of the Router provider
- *
  * @package Protobile
  * @since Barcelona
  * @author Matiss Treinis <matiss@marolind.com>
@@ -11,6 +9,8 @@
 
 namespace Protobile\Interfaces;
 
-interface RouterInterface
+interface OutputFormatter
 {
+    public function get_output();
+    public function set_output($output);
 }
