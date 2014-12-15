@@ -63,7 +63,6 @@ class Main extends GloballyExtendable
     {
         EventManager::set_event_registry($config->get('events'));
         $config->delete('events');
-        var_dump($config);
     }
 
     /**
