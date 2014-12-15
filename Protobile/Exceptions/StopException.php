@@ -1,6 +1,6 @@
 <?php
 /**
- * This exception is thrown in case of there is a problem with request router.
+ * This exception is thrown when Middleware request execution termination
  *
  * @package Protobile
  * @since Barcelona
@@ -13,6 +13,6 @@ namespace Protobile\Exceptions;
 
 use Protobile\Abstracted\Exceptions\BaseException;
 
-class RouterException extends BaseException
+class StopException extends BaseException
 {
 }

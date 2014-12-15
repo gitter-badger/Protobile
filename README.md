@@ -1,9 +1,7 @@
 ![Build](https://img.shields.io/travis/Protobile/Protobile/barcelona.svg?style=flat-square)
-![Dependencies](https://www.versioneye.com/user/projects/5488e746746eb5f67300003b/badge.svg?style=flat-square)
 ![Issues](https://img.shields.io/github/issues/protobile/protobile.svg?style=flat-square)
 ![License](https://img.shields.io/packagist/l/protobile/protobile.svg?style=flat-square)
 ![Releases](https://img.shields.io/github/release/protobile/protobile.svg?style=flat-square)
-![Code Climate](https://img.shields.io/codeclimate/github/Protobile/Protobile.svg?style=flat-square)
 
 Protobile
 =========

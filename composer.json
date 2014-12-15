@@ -11,7 +11,7 @@
     "require": {},
     "require-dev": {
         "phpspec/phpspec": "~2.0",
-        "fabpot/php-cs-fixer": "1.2"
+        "fabpot/php-cs-fixer": "~1.2"
     },
     "autoload": {
         "psr-0": {

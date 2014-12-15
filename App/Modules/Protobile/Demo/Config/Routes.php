@@ -1,21 +1,22 @@
 <?php
 return [
     'demo_route' => [
-        'path' => '/sub_path/(:optional_param)',
+        'path'       => '/sub_path/(:optional_param)',
         'controller' => 'Index:action',
-        'validator' => [
+        'validator'  => [
             'optional_param' => '\\d+',
         ],
-        'view' => 'list',
+        'view'    => 'list',
+        'layout'  => 'custom',
         'methods' => ['GET'],
     ],
     'demo_route' => [
-        'path' => '/sub_path/:param',
+        'path'       => '/sub_path/:param',
         'controller' => 'Index:action',
-        'validator' => [
+        'validator'  => [
             'param' => '\\d+',
         ],
-        'view' => 'item',
+        'view'    => 'item',
         'methods' => ['GET','POST'],
     ]
 ];

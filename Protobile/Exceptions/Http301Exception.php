@@ -7,8 +7,10 @@
  * @license Apache License 2.0
  */
 
-namespace Protobile\Core;
+namespace Protobile\Exceptions;
 
-class RequestManager
+use Protobile\Abstracted\Exceptions\BaseHttpException;
+
+class Http301Exception extends BaseHttpException
 {
 }

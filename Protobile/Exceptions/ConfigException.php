@@ -11,6 +11,8 @@
 
 namespace Protobile\Exceptions;
 
-class ConfigException extends \Protobile\Exceptions\BaseException
+use Protobile\Abstracted\Exceptions\BaseException;
+
+class ConfigException extends BaseException
 {
 }

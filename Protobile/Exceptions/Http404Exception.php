@@ -1,7 +1,5 @@
 <?php
 /**
- * This exception is thrown in case of there is a problem with request router.
- *
  * @package Protobile
  * @since Barcelona
  * @author Matiss Treinis <matiss@marolind.com>
@@ -11,8 +9,8 @@
 
 namespace Protobile\Exceptions;
 
-use Protobile\Abstracted\Exceptions\BaseException;
+use Protobile\Abstracted\Exceptions\BaseHttpException;
 
-class RouterException extends BaseException
+class Http404Exception extends BaseHttpException
 {
 }

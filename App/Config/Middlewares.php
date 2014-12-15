@@ -1,12 +1,20 @@
 <?php
 return [
-    '\\Protobile\\Core\\RequestManager' => [
+    '\\Protobile\\Core\\Middlewares\\RequestManager' => [
         'priority' => 100,
     ],
-    '\\Protobile\\Core\\Router' => [
-        'priority' => 200,
+    '\\Protobile\\Core\\Middlewares\\Router' => [
+        'priority' => 400,
+        'provides' => 'router',
     ],
-    '\\Protobile\\Core\\AssetManager' => [
+    '\\Protobile\\Core\\Middlewares\\ModuleExecutor' => [
         'priority' => 300,
-    ]
+    ],
+    '\\Protobile\\Core\\Middlewares\\AssetManager' => [
+        'priority' => 500,
+    ],
+    '\\Protobile\\Core\\Middlewares\\ResponseManager' => [
+        'priority' => 1000,
+        'provides' => 'http_response',
+    ],
 ];

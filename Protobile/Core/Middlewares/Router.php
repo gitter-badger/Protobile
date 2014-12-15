@@ -7,15 +7,24 @@
  * @license Apache License 2.0
  */
 
-namespace Protobile\Core;
+namespace Protobile\Core\Middlewares;
 
-use Protobile\Abstracted\Middleware;
 use Protobile\Core\Http\Request;
 use Protobile\Core\Http\Response;
+use Protobile\Interfaces\RouterInterface;
+use Protobile\Abstracted\Middleware;
 
-class AssetManager extends Middleware
+class Router extends Middleware implements RouterInterface
 {
     public function run(Request $request, Response $response)
+    {
+    }
+
+    public function compile_routing_table()
+    {
+    }
+
+    public function get_root_routes()
     {
     }
 }

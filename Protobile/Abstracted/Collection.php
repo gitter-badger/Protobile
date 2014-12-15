@@ -8,6 +8,7 @@
  * @copyright Protobile Developers
  * @license Apache License 2.0
  */
+
 namespace Protobile\Abstracted;
 
 abstract class Collection implements \ArrayAccess, \Iterator

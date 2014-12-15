@@ -9,7 +9,7 @@
 
 namespace Protobile\Core\Http;
 
-use Protobile\Core\OutputFormatter\Html;
+use Protobile\Abstracted\BaseHttpException;
 use Protobile\Interfaces\OutputFormatterInterface;
 
 class Response
@@ -30,11 +30,53 @@ class Response
     protected $headers = [];
 
     /**
+     * @var BaseHttpException
+     */
+    protected $http_exception;
+
+    /**
+     * @var string
+     */
+    protected $module_to_run;
+
+    /**
+     * @return string
+     */
+    public function get_module_to_run()
+    {
+        return $this->module_to_run;
+    }
+
+    /**
+     * @param string $module_to_run
+     */
+    public function set_module_to_run($module_to_run)
+    {
+        $this->module_to_run = $module_to_run;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function get_http_exception()
+    {
+        return $this->http_exception;
+    }
+
+    /**
+     * @param mixed $http_exception
+     */
+    public function set_http_exception(BaseHttpException $http_exception)
+    {
+        $this->http_exception = $http_exception;
+    }
+
+    /**
      * @return array
      */
     public function get_headers()
     {
-        return array_values($this->headers);
+        return $this->headers;
     }
 
     /**
@@ -100,13 +142,7 @@ class Response
         $this->output_formatter = $output_formatter;
     }
 
-    /**
-     * @param OutputFormatterInterface $output_formatter
-     */
-    public function __construct(OutputFormatterInterface $output_formatter = null)
-    {
-        if (null === $output_formatter) {
-            $this->set_output_formatter(new Html());
-        }
+    public function __construct(OutputFormatterInterface $formatter){
+        $this->set_output_formatter($formatter);
     }
 }

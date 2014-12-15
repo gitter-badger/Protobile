@@ -11,42 +11,69 @@
 
 namespace Protobile\Core;
 
-use Protobile\Types\StablePriorityQueue;
-use Protobile\Types\Middleware;
+use Protobile\Core\Http\Request;
+use Protobile\Core\Http\Response;
+use Protobile\Exceptions\ConfigException;
+use Protobile\Exceptions\Http301Exception;
+use Protobile\Exceptions\Http302Exception;
+use Protobile\Exceptions\Http404Exception;
+use Protobile\Exceptions\StopException;
+use Protobile\Types\StableOrderedPriorityQueue;
+use Protobile\Abstracted\Middleware;
 
 class Middlewares
 {
-    protected static $instance = null;
     protected $middlewares     = [];
+    protected $providers       = [];
 
-    public function __construct()
+    public function __construct(StableOrderedPriorityQueue $queue)
     {
-        $this->middlewares = new StablePriorityQueue();
+        $this->middlewares = $queue;
     }
 
-    protected function insert(Middleware $middleware, $priority)
+    /**
+     * @param Middleware  $middleware
+     * @param int         $priority
+     * @param null|string $provides
+     */
+    public function register(Middleware $middleware, $priority = 100, $provides = null)
     {
         $this->middlewares->insert($middleware, $priority);
-    }
-
-    /**
-     * @return Middlewares
-     */
-    protected static function get_instance()
-    {
-        if (null == self::$instance) {
-            self::$instance = new self();
+        if (null !== $provides) {
+            $this->providers[$provides] = $middleware;
         }
-
-        return self::$instance;
     }
 
-    /**
-     * @param Middleware $middleware
-     * @param int        $priority
-     */
-    public static function register(Middleware $middleware, $priority = 100)
+    public function get_provider($provided)
     {
-        self::get_instance()->insert($middleware, $priority);
+        if (isset($this->providers[$provided])) {
+            return $this->providers[$provided];
+        }
+        throw new ConfigException('Middleware provider "' . $provided . '" requested, none defined. Define in middlewares config.');
+    }
+
+    public function execute_chain(Request $request, Response $response)
+    {
+        $middlewares = $this->middlewares;
+        $middlewares->setExtractFlags(StableOrderedPriorityQueue::EXTR_DATA);
+        $middlewares->top();
+
+        while ($middlewares->valid()) {
+            try {
+                $middlewares->current()->run($request, $response);
+                $middlewares->next();
+            } catch (StopException $e) {
+                exit;
+            } catch (Http301Exception $e) {
+                $response->set_http_exception($e);
+                $this->get_provider('http_response')->run($request, $response);
+            } catch (Http302Exception $e) {
+                $response->set_http_exception($e);
+                $this->get_provider('http_response')->run($request, $response);
+            } catch (Http404Exception $e) {
+                $response->set_http_exception($e);
+                $this->get_provider('http_response')->run($request, $response);
+            }
+        }
     }
 }

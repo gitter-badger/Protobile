@@ -12,6 +12,8 @@
 
 namespace Protobile\Exceptions;
 
-class CoreException extends \Protobile\Exceptions\BaseException
+use Protobile\Abstracted\Exceptions\BaseException;
+
+class CoreException extends BaseException
 {
 }

@@ -1,7 +1,5 @@
 <?php
 /**
- * This file contains interface of the Config provider
- *
  * @package Protobile
  * @since Barcelona
  * @author Matiss Treinis <matiss@marolind.com>
@@ -9,8 +7,11 @@
  * @license Apache License 2.0
  */
 
-namespace Protobile\Interfaces;
+namespace Protobile\App\Controllers;
 
-interface ConfigInterface
+use Protobile\Abstracted\GloballyExtendable;
+
+abstract class Controller extends GloballyExtendable
 {
+    protected $view;
 }
