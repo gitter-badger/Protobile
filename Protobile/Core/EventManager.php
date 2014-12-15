@@ -9,9 +9,8 @@
 
 namespace Protobile\Core;
 
-
-class EventManager {
-
+class EventManager
+{
     /**
      * @var array
      */
@@ -33,30 +32,27 @@ class EventManager {
         self::$event_registry = $event_registry;
     }
 
-
     /**
      * @param $name
      * @param mixed $arg1
      * @param mixed $arg2
      */
-    public static function call($name, $arg1=null, $arg2=null){
-
+    public static function call($name, $arg1 = null, $arg2 = null)
+    {
     }
 
     /**
      * @param $name
      * @param $callable
      */
-    public static function register($name, $callable){
-
+    public static function register($name, $callable)
+    {
     }
 
     /**
      * @param $name
      */
-    public static function clear($name){
-
+    public static function clear($name)
+    {
     }
-
-
 }

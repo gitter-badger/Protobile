@@ -19,10 +19,10 @@ use Protobile\Exceptions\CoreException;
 class Main extends GloballyExtendable
 {
     /**
-     * @param Config $config
-     * @param Middlewares $middlewares
-     * @param Request $request
-     * @param Response $response
+     * @param  Config        $config
+     * @param  Middlewares   $middlewares
+     * @param  Request       $request
+     * @param  Response      $response
      * @throws CoreException
      */
     public function run(
@@ -38,7 +38,6 @@ class Main extends GloballyExtendable
         $this->execute($middlewares, $request, $response);
     }
 
-
     /**
      * @param $config
      */
@@ -47,7 +46,6 @@ class Main extends GloballyExtendable
         $exception_handler = $config->get('errorhandler.exceptions');
         ///set_exception_handler([$exception_handler, 'handle']);
     }
-
 
     /**
      * @param $config
@@ -61,16 +59,16 @@ class Main extends GloballyExtendable
     /**
      * @param $config
      */
-    protected function init_events($config){
+    protected function init_events($config)
+    {
         EventManager::set_event_registry($config->get('events'));
         $config->delete('events');
         var_dump($config);
     }
 
-
     /**
-     * @param Config $config
-     * @param Middlewares $middlewares
+     * @param  Config        $config
+     * @param  Middlewares   $middlewares
      * @throws CoreException
      */
     protected function load_middlewares(Config $config, Middlewares $middlewares)
@@ -85,11 +83,10 @@ class Main extends GloballyExtendable
         }
     }
 
-
     /**
      * @param Middlewares $middlewares
-     * @param Request $request
-     * @param Response $response
+     * @param Request     $request
+     * @param Response    $response
      */
     protected function execute(Middlewares $middlewares, Request $request, Response $response)
     {

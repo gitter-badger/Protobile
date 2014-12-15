@@ -142,7 +142,8 @@ class Response
         $this->output_formatter = $output_formatter;
     }
 
-    public function __construct(OutputFormatterInterface $formatter){
+    public function __construct(OutputFormatterInterface $formatter)
+    {
         $this->set_output_formatter($formatter);
     }
 }

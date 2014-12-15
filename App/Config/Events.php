@@ -1,6 +1,6 @@
 <?php
 return [
-    'demo_event'=>function(){
+    'demo_event' => function () {
 
     }
 ];

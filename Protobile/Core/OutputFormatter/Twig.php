@@ -9,11 +9,10 @@
 
 namespace Protobile\Core\OutputFormatter;
 
-
 use Protobile\Interfaces\OutputFormatterInterface;
 
-class Twig implements OutputFormatterInterface{
-
+class Twig implements OutputFormatterInterface
+{
     public function get_output()
     {
         // TODO: Implement get_output() method.

@@ -9,7 +9,6 @@
 
 namespace Protobile\Core\Http;
 
-
 class Request
 {
     /**
