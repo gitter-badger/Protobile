@@ -6,12 +6,10 @@ use Protobile\Core\Config;
 use Protobile\Core\Middlewares;
 use Protobile\Core\Http\Request;
 use Protobile\Core\Http\Response;
-use Protobile\Types\StableOrderedPriorityQueue;
 use Protobile\Core\Http\InputContainer;
-use \Protobile\Core\OutputFormatter\Html;
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+use Protobile\Core\Http\ServerInputContainer;
+use Protobile\Core\OutputFormatter\Html;
+use Protobile\Types\StableOrderedPriorityQueue;
 
 // Define runtime options
 $root = dirname(__DIR__);
@@ -25,11 +23,11 @@ $middlewares = new Middlewares(new StableOrderedPriorityQueue(StableOrderedPrior
 $request     = new Request(
     new InputContainer($_GET),
     new InputContainer($_POST),
-    new InputContainer($_SERVER),
+    new ServerInputContainer($_SERVER),
     new InputContainer($_COOKIE),
     new InputContainer($_FILES)
 );
 $response = new Response(new Html());
 (new Main())->run($config, $middlewares, $request, $response);
 
-echo 'ok';
+echo microtime();

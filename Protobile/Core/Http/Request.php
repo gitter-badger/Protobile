@@ -9,6 +9,8 @@
 
 namespace Protobile\Core\Http;
 
+use Protobile\Utility\ArrayUtility;
+
 class Request
 {
     /**
@@ -40,34 +42,34 @@ class Request
      * @param $key
      * @return mixed
      */
-    public function post($key)
+    public function post($key = null)
     {
-        return get_dot_value($key, $this->post);
+        return ArrayUtility::get_dot_value($key, $this->post);
     }
 
     /**
      * @param $key
      * @return mixed
      */
-    public function get($key)
+    public function get($key = null)
     {
-        return get_dot_value($key, $this->get);
+        return ArrayUtility::get_dot_value($key, $this->get);
     }
 
     /**
      * @param $key
      * @return mixed
      */
-    public function server($key)
+    public function server($key = null)
     {
-        return get_dot_value($key, $this->server);
+        return ArrayUtility::get_dot_value($key, $this->server);
     }
 
     /**
      * @param $key
      * @return CookieManager
      */
-    public function cookie($key)
+    public function cookie($key = null)
     {
         // Pending special implementation - CookieManager
     }
@@ -76,7 +78,7 @@ class Request
      * @param $key
      * @return FileUploadManager
      */
-    public function files($key)
+    public function files($key = null)
     {
         // Pending special implementation - FileUploadManager
     }
@@ -84,14 +86,14 @@ class Request
     /**
      * @param InputContainer $get
      * @param InputContainer $post
-     * @param InputContainer $server
+     * @param ServerInputContainer $server
      * @param InputContainer $cookie
      * @param InputContainer $files
      */
     public function __construct(
         InputContainer $get,
         InputContainer $post,
-        InputContainer $server,
+        ServerInputContainer $server,
         InputContainer $cookie,
         InputContainer $files
     ) {

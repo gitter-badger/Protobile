@@ -10,12 +10,13 @@
 namespace Protobile\Core\Middlewares;
 
 use Protobile\Abstracted\Middleware;
+use Protobile\Core\Config;
 use Protobile\Core\Http\Request;
 use Protobile\Core\Http\Response;
 
 class ResponseManager extends Middleware
 {
-    public function run(Request $request, Response $response)
+    public function run(Request $request, Response $response, Router $router, Config $config)
     {
         if ($response->get_http_exception() != null) {
             $this->handle_http_exception($response->get_http_exception(), $request, $response);

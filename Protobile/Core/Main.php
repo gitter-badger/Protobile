@@ -35,7 +35,7 @@ class Main extends GloballyExtendable
         $this->attach_exception_handler($config);
         $this->attach_error_handler($config);
         $this->load_middlewares($config, $middlewares);
-        $this->execute($middlewares, $request, $response);
+        $this->execute($middlewares, $request, $response, $config);
     }
 
     /**
@@ -87,8 +87,8 @@ class Main extends GloballyExtendable
      * @param Request     $request
      * @param Response    $response
      */
-    protected function execute(Middlewares $middlewares, Request $request, Response $response)
+    protected function execute(Middlewares $middlewares, Request $request, Response $response, Config $config)
     {
-        $middlewares->execute_chain($request, $response);
+        $middlewares->execute_chain($request, $response, $config);
     }
 }

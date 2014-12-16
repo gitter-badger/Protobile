@@ -9,6 +9,8 @@
 
 namespace Protobile\Core;
 
+use Protobile\Utility\ArrayUtility;
+
 class Config
 {
     /**
@@ -64,7 +66,7 @@ class Config
             return $this->config;
         }
 
-        return get_dot_value($key, $this->config);
+        return ArrayUtility::get_dot_value($key, $this->config);
     }
 
     /**
@@ -76,7 +78,7 @@ class Config
         if (empty($key)) {
             throw new \InvalidArgumentException('Config key must have value when doing insertion');
         }
-        set_dot_value($key, $value, $this->config);
+        ArrayUtility::set_dot_value($key, $value, $this->config);
     }
 
     /**
@@ -87,7 +89,7 @@ class Config
         if (empty($key)) {
             throw new \InvalidArgumentException('Config key must have value when doing deletion');
         }
-        delete_dot_value($key, $this->config);
+        ArrayUtility::delete_dot_value($key, $this->config);
     }
 
     /**

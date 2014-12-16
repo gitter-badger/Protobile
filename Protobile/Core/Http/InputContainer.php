@@ -15,12 +15,12 @@ class InputContainer
     /**
      * @var array
      */
-    private $data = array();
+    protected $data = array();
 
     /**
      * @var int
      */
-    private $index     = 0;
+    protected $index     = 0;
 
     /**
      * @param array $data

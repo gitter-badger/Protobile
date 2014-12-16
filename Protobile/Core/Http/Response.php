@@ -37,22 +37,22 @@ class Response
     /**
      * @var string
      */
-    protected $module_to_run;
+    protected $controller_to_run;
 
     /**
      * @return string
      */
-    public function get_module_to_run()
+    public function get_controller_to_run()
     {
-        return $this->module_to_run;
+        return $this->controller_to_run;
     }
 
     /**
-     * @param string $module_to_run
+     * @param string $controller_to_run
      */
-    public function set_module_to_run($module_to_run)
+    public function set_controller_to_run($controller_to_run)
     {
-        $this->module_to_run = $module_to_run;
+        $this->controller_to_run = $controller_to_run;
     }
 
     /**

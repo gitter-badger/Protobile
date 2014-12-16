@@ -7,7 +7,7 @@ return [
         'priority' => 400,
         'provides' => 'router',
     ],
-    '\\Protobile\\Core\\Middlewares\\ModuleExecutor' => [
+    '\\Protobile\\Core\\Middlewares\\ControllerExecutor' => [
         'priority' => 300,
     ],
     '\\Protobile\\Core\\Middlewares\\AssetManager' => [

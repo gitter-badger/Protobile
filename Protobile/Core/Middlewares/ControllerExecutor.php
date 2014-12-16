@@ -10,18 +10,19 @@
 namespace Protobile\Core\Middlewares;
 
 use Protobile\Abstracted\Middleware;
+use Protobile\Core\Config;
 use Protobile\Core\Http\Request;
 use Protobile\Core\Http\Response;
 
-class ModuleExecutor extends Middleware
+class ControllerExecutor extends Middleware
 {
-    public function run(Request $request, Response $response)
+    public function run(Request $request, Response $response, Router $router, Config $config)
     {
-        $output = self::run_module($response->get_module_to_run());
+        $output = self::run_controller($response->get_controller_to_run(), $request, $response, $router, $config);
         $response->get_output_formatter()->set_output($output);
     }
 
-    public static function run_module($module_name)
+    public static function run_controller($module_name, Request $request, Response $response, Router $router, Config $config)
     {
         ob_start();
         // Modules must always be executed within output buffer

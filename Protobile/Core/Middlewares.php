@@ -52,7 +52,7 @@ class Middlewares
         throw new ConfigException('Middleware provider "' . $provided . '" requested, none defined. Define in middlewares config.');
     }
 
-    public function execute_chain(Request $request, Response $response)
+    public function execute_chain(Request $request, Response $response, Config $config)
     {
         $middlewares = $this->middlewares;
         $middlewares->setExtractFlags(StableOrderedPriorityQueue::EXTR_DATA);
@@ -60,7 +60,8 @@ class Middlewares
 
         while ($middlewares->valid()) {
             try {
-                $middlewares->current()->run($request, $response);
+                $router = $this->get_provider('router');
+                $middlewares->current()->run($request, $response, $router, $config);
                 $middlewares->next();
             } catch (StopException $e) {
                 exit;

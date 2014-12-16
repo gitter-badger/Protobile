@@ -16,11 +16,11 @@ abstract class Collection implements \ArrayAccess, \Iterator
     private $container = [];
     private $index     = 0;
 
-    abstract public function validateItem($item, $key);
+    abstract public function validateItem($key, $value);
 
-    protected function invokeValidator($item, $key)
+    protected function invokeValidator($key, $value)
     {
-        if (!$this->validateItem($item, $key)) {
+        if (!$this->validateItem($key, $value)) {
             throw new \InvalidArgumentException('Validation of collection item failed for index "' . $key . '"');
         }
     }
@@ -30,15 +30,15 @@ abstract class Collection implements \ArrayAccess, \Iterator
         if (empty($data)) {
             return;
         }
-        foreach ($data as $key => $item) {
-            $this->invokeValidator($item, $key);
+        foreach ($data as $key => $value) {
+            $this->invokeValidator($key, $value);
         }
         $this->container = $data;
     }
 
     public function offsetSet($key, $value)
     {
-        $this->invokeValidator($value, $key);
+        $this->invokeValidator($key, $value);
         if (is_null($key)) {
             $this->container[] = $value;
         } else {
@@ -72,23 +72,23 @@ abstract class Collection implements \ArrayAccess, \Iterator
 
     public function current()
     {
-        $key = array_keys($this->container);
+        $keys = array_keys($this->container);
 
-        return $this->container[$k[$this->index]];
+        return $this->container[$keys[$this->index]];
     }
 
     public function key()
     {
-        $key = array_keys($this->container);
+        $keys = array_keys($this->container);
 
-        return $key[$this->index];
+        return $keys[$this->index];
     }
 
     public function next()
     {
-        $key = array_keys($this->container);
-        if (isset($key[++$this->index])) {
-            return $this->container[$key[$this->index]];
+        $keys = array_keys($this->container);
+        if (isset($keys[++$this->index])) {
+            return $this->container[$keys[$this->index]];
         } else {
             return false;
         }
@@ -96,14 +96,14 @@ abstract class Collection implements \ArrayAccess, \Iterator
 
     public function valid()
     {
-        $key = array_keys($this->container);
+        $keys = array_keys($this->container);
 
-        return isset($key[$this->index]);
+        return isset($keys[$this->index]);
     }
 
-    public function __set($keyey, $value)
+    public function __set($key, $value)
     {
-        $this->invokeValidator($item, $key);
+        $this->invokeValidator($key, $value);
         $this->container[$key] = $value;
     }
 
