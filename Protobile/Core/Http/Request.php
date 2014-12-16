@@ -84,11 +84,11 @@ class Request
     }
 
     /**
-     * @param InputContainer $get
-     * @param InputContainer $post
+     * @param InputContainer       $get
+     * @param InputContainer       $post
      * @param ServerInputContainer $server
-     * @param InputContainer $cookie
-     * @param InputContainer $files
+     * @param InputContainer       $cookie
+     * @param InputContainer       $files
      */
     public function __construct(
         InputContainer $get,

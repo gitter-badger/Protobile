@@ -8,10 +8,13 @@
             "email": "protobile@googlegroups.com"
         }
     ],
-    "require": {},
+    "require": {
+        "codegyre/robo": "~0.4.6"
+    },
     "require-dev": {
         "phpspec/phpspec": "~2.0",
-        "fabpot/php-cs-fixer": "~1.2"
+        "fabpot/php-cs-fixer": "~1.2",
+        "elfet/deployer": "~2.0"
     },
     "autoload": {
         "psr-0": {
@@ -23,5 +26,6 @@
     },
     "config": {
         "bin-dir": "bin"
-    }
+    },
+    "bin":["proto"]
 }

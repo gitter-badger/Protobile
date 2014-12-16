@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+<?php
+
+$cwd      = getcwd();
+$autoload = $cwd . '/vendor/autoload.php';
+
+if (file_exists($autoload) == false) {
+    die('Vendor directory not found (' . $autoload . ')' . PHP_EOL);
+}
