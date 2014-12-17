@@ -9,7 +9,8 @@
         }
     ],
     "require": {
-        "codegyre/robo": "~0.4.6"
+        "codegyre/robo": "~0.4.6",
+        "hoa/console": "~2.0"
     },
     "require-dev": {
         "phpspec/phpspec": "~2.0",

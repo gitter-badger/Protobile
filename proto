@@ -7,3 +7,18 @@ $autoload = $cwd . '/vendor/autoload.php';
 if (file_exists($autoload) == false) {
     die('Vendor directory not found (' . $autoload . ')' . PHP_EOL);
 }
+
+require($autoload);
+
+$readline = new Hoa\Console\Readline\Readline();
+
+$console = new \Protobile\Console\Console($cwd, $readline);
+
+$readline->setAutocompleter(
+    new Hoa\Console\Readline\Autocompleter\Aggregate(array(
+        new Hoa\Console\Readline\Autocompleter\Path(),
+        new Hoa\Console\Readline\Autocompleter\Word($console->autocomplete_list())
+    ))
+);
+
+$console->run();
